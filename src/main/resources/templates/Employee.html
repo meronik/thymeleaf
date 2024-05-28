@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.com" >
+  <head>
+   
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>employee page</title>
+	<style>
+		.navbar,.head{
+			background: #0f0 ;	
+		}
+		.navbar a{
+			color: black;
+			font-weight: bold;
+			font-size: 1.2rem;
+		}
+	</style>
+  </head>
+  <body>
+   <!--Navbar-->
+   <nav class="navbar navbar-expand-lg ">
+     <a class="navbar-brand ">EMPLOYEE System</a>
+    
+
+     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+       <ul class="navbar-nav mr-auto">
+         <li class="nav-item">
+           <a class="nav-link" href="add">add EMP</a>
+         </li>
+       </ul>
+  
+     </div>
+   </nav>
+   
+  <!-- <div th:if="${session.msg}">
+	<div class="alert alert-success" role="alert" th:text="${session.msg}"></div>
+	<div th:text="${session.removeAttribute("msg")}"></div>
+   </div>-->
+  
+   
+   <div class="container p-5">
+	<table class="table table-striped">
+	  <thead class=" head">
+	    <tr >
+	      <th scope="col">Emp_Id</th>
+	      <th scope="col">Emp_Name</th>
+	      <th scope="col">Emp_Email</th>
+	      <th scope="col">Emp_PhoneNumber</th>
+		  <th scope="col">Emp_Dept</th>
+		  <th scope="col">Emp_Skills</th>
+		  <th scope="col">Action</th>
+		  
+	    </tr>
+	  </thead>
+	  <tbody>
+		<tr th:each="emp : ${employee}">
+			      <td th:text="${emp.id}"></td>
+			      <td th:text="${emp.name}"></td>
+			      <td th:text="${emp.email}"></td>
+			      <td th:text="${emp.phone}"></td>
+				  <td th:text="${emp.positon}"></td>
+				  <td th:text="${emp.department}"></td>
+				  <td>
+					<a class="btn btn-sm btn-primary" th:href="@{/edit/{id}(id=${emp.id})}">Edit</a>
+					<a class="btn btn-sm btn-danger"  th:href="@{/delete/{id}(id=${emp.id})}">Delete</a>
+				  </td>
+				  
+			    </tr>
+			
+	   
+	  </tbody>
+	</table>
+   </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.com">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: black;
+			font-family: 'Times New Roman', Times, serif;
+			color: white;
+        }
+        .login-container {
+            margin-top: 100px;
+        }
+        .login-card {
+            padding: 30px;
+            border: 1px solid #222;
+            border-radius: 8px;
+            background: #222;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .login-card .form-control {
+            border-radius: 30px;
+        }
+        .login-card .btn-block {
+			border-radius: 30px;
+        }
+		.btn-block{
+			background:#0f0 ;
+			border: 2px solid #0f0  ;
+			font-size: 1.2rem;
+		}
+        .login-card .form-text {
+            color: #6c757d;
+        }
+        .login-title {
+			font-size: 2.5rem;
+			  color: #0f0;
+			  font-weight: bold;
+			  text-transform: uppercase;
+			  
+        }
+		input{
+			background:#333 !important;
+			border: 1px solid #333 !important;
+		}
+    </style>
+</head>
+<body>
+    <div class="container login-container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-4">
+                <div class="login-card">
+                    <div class="text-center login-title">Login</div>
+                    <form action="checkUser">
+                        <div class="form-group">
+                            <label for="name">Email address</label>
+                            <input type="text" class="form-control" name="user" id="name" placeholder="Enter username">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control " name="pass" id="password" placeholder="Enter Password">
+							
+                        </div>
+                        <button type="submit" class=" btn-block">Login</button>
+						<p style="color: red;font-size: 20px;" th:text="${error}"></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
